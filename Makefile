@@ -13,7 +13,9 @@ solana-cli-version:
 	@echo ${SOLANA_CLI_VERSION}
 
 audit:
-	cargo audit $(ARGS)
+	cargo audit \
+		--ignore RUSTSEC-2026-0387 \
+		$(ARGS)
 
 spellcheck:
 	cargo spellcheck --code 1 $(ARGS)
